@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trang 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/trang4.css" />
+</head>
+<body>
+  <div class="chapter-title">
+    <p class="title">Chương 4</p>
+    <p class="title">Tiếp bước Người - Hướng đến tương lai</p>
+  </div>
+
+  <div class="text-section fade-in" id="text-section">
+    <p class="text">
+      Chủ tịch Hồ Chí Minh – Người sáng lập, rèn luyện và dẫn dắt Đảng Cộng sản Việt Nam – đã dành trọn cuộc đời mình để gây dựng một tổ chức cách mạng chân chính, vì nhân dân mà phục vụ. 
+      Từ những ngày đầu đầy gian nan, Bác đã kiên trì vun đắp cho một Đảng vững về tư tưởng, mạnh về tổ chức, trong sạch về đạo đức. 
+      Chính từ nền móng ấy, Đảng ta đã lãnh đạo cách mạng đi từ thắng lợi này đến thắng lợi khác, giành độc lập dân tộc, xây dựng đất nước hòa bình, phát triển. 
+      Hôm nay, hơn bao giờ hết, thế hệ chúng ta phải biết trân trọng và giữ gìn thành quả ấy, không ngừng bồi đắp lý tưởng cách mạng, nâng cao năng lực và đạo đức cách mạng để tiếp nối con đường mà Bác và các thế hệ cha ông đã lựa chọn.
+    </p>
+    <button class="continue-btn fade-in" id="continue-btn">Tiếp tục</button>
+  </div>
+
+  <div class="transition-wrapper" id="transition-wrapper">
+    <p class="transition-text" id="transition-text">
+      Tiêu biểu là Tổng Bí thư Nguyễn Phú Trọng – người kế thừa và lan tỏa tư tưởng, đạo đức, phong cách Hồ Chí Minh – là minh chứng cho lý tưởng cách mạng luôn được tiếp nối và phát huy trong thời đại mới.
+    </p>
+
+    <div class="video-wrapper">
+      <iframe width="750" height="400" src="https://www.youtube.com/embed/Z2CljQ24_Xw?si=Lf63HG4M8_Y2-2Ri" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+      <button class="continue-btn fade-in" id="video-continue-btn">Tiếp tục</button>
+    </div>
+
+
+    <div class="inspirational-text fade-in" id="inspirational-text" style="display: none;">
+      <p class="quote">
+        "Nếu là hoa hãy là hoa hướng dương; nếu là chim hãy là chim câu trắng; nếu là đá hãy là đá kim cương; nếu là người hãy là người Cộng Sản!"<br /><br />
+        Cái quý nhất của con người là cuộc sống và danh dự sống, bởi vì đời người chỉ sống có một lần. Phải sống sao cho khỏi xót xa ân hận vì những năm tháng đã sống hoài, sống phí; để khỏi hổ thẹn vì những việc làm ty tiện, đớn hèn, bị mọi người khinh bỉ; để đến khi nhắm mắt xuôi tay ta có thể tự hào rằng: Tất cả đời ta, tất cả sức ta, ta đã hiến dâng cho sự nghiệp cao đẹp nhất trên đời - sự nghiệp đấu tranh giải phóng dân tộc, giải phóng con người mang lại hạnh phúc cho nhân dân!
+      </p>
+      <p class="quote-author">— Tổng Bí thư Nguyễn Phú Trọng</p>
+    </div>
+
+    <a href="trang5.html">
+      <button class="continue-btn fade-in" id="after-video-btn">Tiếp tục</button>
+    </a>
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      // Hiện phần mở đầu sau khi tải trang
+      setTimeout(() => {
+        document.getElementById("text-section").classList.add("show");
+      }, 500);
+  
+      // Sự kiện nhấn "Tiếp tục" đầu tiên
+      const firstContinueBtn = document.getElementById("continue-btn");
+      if (firstContinueBtn) {
+        firstContinueBtn.addEventListener("click", () => {
+          document.getElementById("text-section").style.display = "none";
+          const transitionWrapper = document.getElementById("transition-wrapper");
+          transitionWrapper.style.display = "flex";
+          setTimeout(() => {
+            transitionWrapper.classList.add("show");
+          }, 300);
+        });
+      }
+  
+      // Sự kiện nhấn "Tiếp tục" sau video
+      const videoContinueBtn = document.getElementById("video-continue-btn");
+      if (videoContinueBtn) {
+        videoContinueBtn.addEventListener("click", showInspirationalContent);
+      }
+  
+      // Nếu video có thể tự động phát khi transition hiện ra
+      const videoIframe = document.getElementById("main-video");
+      if (videoIframe) {
+        videoIframe.addEventListener("ended", showInspirationalContent);
+      }
+  
+      // Hàm xử lý khi kết thúc video hoặc nhấn nút tiếp tục sau video
+      function showInspirationalContent() {
+        const videoWrapper = document.querySelector(".video-wrapper");
+        const transitionText = document.querySelector(".transition-text");
+        const inspirationalText = document.getElementById("inspirational-text");
+        const afterBtn = document.getElementById("after-video-btn");
+  
+        if (videoWrapper) videoWrapper.style.display = "none";
+        if (transitionText) transitionText.style.display = "none";
+        if (videoContinueBtn) videoContinueBtn.style.display = "none";
+  
+        if (inspirationalText) {
+          inspirationalText.style.display = "block";
+          setTimeout(() => {
+            inspirationalText.classList.add("show");
+          }, 100);
+        }
+  
+        if (afterBtn) {
+          afterBtn.classList.add("show");
+        }
+      }
+    });
+  </script>  
+</body>
+</html>
