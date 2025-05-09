@@ -256,7 +256,6 @@ button:hover {
   width: 100%;
   height: fit-content;
   border-radius: 10px;
-  margin-bottom: 20px;
   border: 2px solid #950006;
 }
 
@@ -265,6 +264,13 @@ button:hover {
   line-height: 1.7;
   margin-bottom: 10px;
   color: #222;
+}
+.chiTiet{
+  font-size: 14px;
+  line-height: 1.4;
+  font-style: italic;
+  margin-bottom: 10px;
+  color: #5B6364;
 }
 .text{
   text-align: center;

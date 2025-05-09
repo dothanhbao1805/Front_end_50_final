@@ -386,3 +386,22 @@ button:hover {
   font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
 }
+
+.carousel-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-style: italic;
+  animation: hintFade 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes hintFade {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}

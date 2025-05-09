@@ -57,16 +57,16 @@
       // Hiển thị ảnh lần lượt
       images.forEach((img, index) => {
         setTimeout(() => {
-          img.style.transition = 'opacity 1s ease';  // Thêm hiệu ứng cho ảnh
-          img.style.opacity = 1;  // Hiển thị ảnh với hiệu ứng fade-in
-        }, index * 1000);  // Thêm độ trễ cho từng ảnh (1000ms cho mỗi ảnh)
+          img.style.opacity = 1;
+          img.style.transform = 'scale(1)';
+        }, index * 340); // nhanh hơn một chút để không bị quá chậm
       });
 
       // Sau khi tất cả ảnh đã load, làm mờ nền và hiện chữ
       setTimeout(() => {
         overlay.style.opacity = 0.4;    // Làm mờ ảnh nền
         rightContent.style.opacity = 1; // Hiện chữ
-      }, images.length * 1000);  // Thời gian sau khi tất cả ảnh đã load
+      }, images.length * 450);  // Thời gian sau khi tất cả ảnh đã load
     };
   </script>
 
